@@ -86,7 +86,7 @@ var getInfo = function(payload) {
   }
   catch (e) {
     var midHeader = payload.slice(0,2);
-    info = header.decodeMid(midHeader); 
+    info = header.decodeMid(midHeader);
   }
   return info;
 };
@@ -104,8 +104,10 @@ var decode = function(payloads, callback) {
     return;
   }
   var id = info.id;
-  var length = info.length;
-  assert.equal(payloads.length, length);
+  //var length = info.length;
+  //assert.equal(payloads.length, length);
+  length = payloads.length;
+
   var compressedBuffer = new Buffer("");
   for (var i = 0; i < length; i++) {
     var payload = payloads[i];
